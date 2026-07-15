@@ -35,13 +35,13 @@ public class DashboardController {
         lblNombreUsuario.setText(usuario.getNombre());
         lblRol.setText(usuario.getRol());
 
-        contentPane.getStyleClass().removeAll("tema-admin", "tema-cajero", "tema-reportes");
+     /*   contentPane.getStyleClass().removeAll("tema-admin", "tema-cajero", "tema-reportes");
         switch (usuario.getRol()) {
             case Usuario.ROL_ADMIN -> contentPane.getStyleClass().add("tema-admin");
             case Usuario.ROL_CAJERO -> contentPane.getStyleClass().add("tema-cajero");
             case Usuario.ROL_REPORTES -> contentPane.getStyleClass().add("tema-reportes");
         }
-
+*/
         aplicarPermisosPorRol(usuario.getRol());
         cargarVista("/view/prendas.fxml");
     }

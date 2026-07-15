@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane fx:id="contentPane" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+            fx:controller="controller.DashboardController" styleClass="dashboard-root">
+
+    <top>
+        <HBox alignment="CENTER_LEFT" spacing="10" styleClass="barra-superior">
+            <padding>
+                <Insets top="10" right="20" bottom="10" left="20"/>
+            </padding>
+
+            <Label text="Tienda de Ropa" styleClass="titulo-barra"/>
+            <HBox HBox.hgrow="ALWAYS"/>
+            <Label fx:id="lblNombreUsuario" styleClass="label-usuario"/>
+            <Label fx:id="lblRol" styleClass="label-rol"/>
+            <Button fx:id="btnCerrarSesion" text="Cerrar Sesión" onAction="#cerrarSesion" styleClass="boton-cerrar-sesion"/>
+        </HBox>
+    </top>
+
+    <left>
+        <VBox spacing="8" styleClass="menu-lateral" prefWidth="180">
+            <padding>
+                <Insets top="20" right="10" bottom="10" left="10"/>
+            </padding>
+            <Button fx:id="btnPrendas" text="Prendas" onAction="#irAPrendas" maxWidth="Infinity" styleClass="boton-menu"/>
+            <Button fx:id="btnUsuarios" text="Usuarios" onAction="#irAUsuarios" maxWidth="Infinity" styleClass="boton-menu"/>
+            <Button fx:id="btnReportes" text="Reportes" onAction="#irAReportes" maxWidth="Infinity" styleClass="boton-menu"/>
+            <Button fx:id="btnConfiguracion" text="Configuración" onAction="#irAConfiguracion" maxWidth="Infinity" styleClass="boton-menu"/>
+        </VBox>
+    </left>
+
+</BorderPane>
+
