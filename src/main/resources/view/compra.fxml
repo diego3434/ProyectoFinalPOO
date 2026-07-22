@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox prefHeight="561.0" prefWidth="713.0" spacing="15" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.CompraController">
+    <padding>
+        <Insets bottom="20" left="20" right="20" top="20" />
+    </padding>
+
+    <Label styleClass="subtitulo" text="Catálogo Disponible" />
+
+    <TableView fx:id="tablaCatalogo" prefHeight="220">
+        <columns>
+            <TableColumn fx:id="colNombre" prefWidth="150" text="Nombre" />
+            <TableColumn fx:id="colCategoria" prefWidth="110" text="Categoría" />
+            <TableColumn fx:id="colTalla" prefWidth="60" text="Talla" />
+            <TableColumn fx:id="colColor" prefWidth="90" text="Color" />
+            <TableColumn fx:id="colPrecio" prefWidth="80" text="Precio" />
+            <TableColumn fx:id="colStock" prefWidth="70" text="Stock" />
+        </columns>
+    </TableView>
+
+    <Label fx:id="lblSeleccion" />
+
+    <HBox alignment="CENTER_LEFT" spacing="10" styleClass="formulario">
+        <TextField fx:id="txtCantidad" prefWidth="100" promptText="Cantidad" />
+        <TextField fx:id="txtClienteNombre" prefWidth="160" promptText="Tu nombre" />
+        <TextField fx:id="txtClienteCedula" prefWidth="140" promptText="Cédula (opcional)" />
+
+        <Button onAction="#generarPedido" styleClass="boton-primario" text="Generar Pedido" />
+        <Button onAction="#limpiar" styleClass="boton-secundario" text="Limpiar" />
+    </HBox>
+
+    <Label styleClass="subtitulo" text="Mis pedidos" />
+    <TableView fx:id="tablaMisPedidos" VBox.vgrow="ALWAYS">
+        <columns>
+            <TableColumn fx:id="colPedidoPrenda" prefWidth="160" text="Prenda" />
+            <TableColumn fx:id="colPedidoCantidad" prefWidth="90" text="Cantidad" />
+            <TableColumn fx:id="colPedidoEstado" prefWidth="110" text="Estado" />
+        </columns>
+    </TableView>
+</VBox>

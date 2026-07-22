@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox spacing="20" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="controller.VentaController">
+    <padding>
+        <Insets top="20" right="20" bottom="20" left="20"/>
+    </padding>
+
+    <Label text="Registrar Venta" styleClass="subtitulo"/>
+
+    <HBox spacing="20">
+        <VBox spacing="10" prefWidth="320" styleClass="formulario">
+            <ComboBox fx:id="cbPrenda" promptText="Selecciona una prenda" maxWidth="Infinity"/>
+            <TextField fx:id="txtCantidad" promptText="Cantidad"/>
+            <TextField fx:id="txtClienteNombre" promptText="Nombre del cliente"/>
+            <TextField fx:id="txtClienteCedula" promptText="Cédula (opcional)"/>
+
+
+            <HBox spacing="10">
+                <Button text="Registrar Venta" onAction="#registrarVenta" styleClass="boton-primario"/>
+                <Button text="Limpiar" onAction="#limpiar" styleClass="boton-secundario"/>
+            </HBox>
+        </VBox>
+
+        <VBox spacing="10" HBox.hgrow="ALWAYS">
+            <Label text="Pedidos de compradores pendientes por facturar" styleClass="subtitulo"/>
+            <TableView fx:id="tablaPedidos" VBox.vgrow="ALWAYS">
+                <columns>
+                    <TableColumn fx:id="colCliente" text="Cliente" prefWidth="130"/>
+                    <TableColumn fx:id="colPrenda" text="Prenda" prefWidth="140"/>
+                    <TableColumn fx:id="colCantidad" text="Cantidad" prefWidth="80"/>
+                    <TableColumn fx:id="colEstado" text="Estado" prefWidth="100"/>
+                </columns>
+            </TableView>
+            <Button text="Facturar pedido seleccionado" onAction="#facturarPedidoSeleccionado" styleClass="boton-primario"/>
+        </VBox>
+    </HBox>
+</VBox>
+

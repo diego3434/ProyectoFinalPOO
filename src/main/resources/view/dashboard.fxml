@@ -3,7 +3,6 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
@@ -17,10 +16,8 @@
             <padding>
                 <Insets top="10" right="20" bottom="10" left="20"/>
             </padding>
-            <ImageView fitHeight="40" fitWidth="40" preserveRatio="true">
-                <Image url="@../img/logo.png"/>
-            </ImageView>
-            <Label text="Tienda de Ropa" styleClass="titulo-barra"/>
+            <ImageView fx:id="imgLogo" fitHeight="40" fitWidth="40" preserveRatio="true"/>
+            <Label fx:id="lblNombreEmpresa" text="Tienda de Ropa" styleClass="titulo-barra"/>
             <HBox HBox.hgrow="ALWAYS"/>
             <Label fx:id="lblNombreUsuario" styleClass="label-usuario"/>
             <Label fx:id="lblRol" styleClass="label-rol"/>
@@ -34,6 +31,9 @@
                 <Insets top="20" right="10" bottom="10" left="10"/>
             </padding>
             <Button fx:id="btnPrendas" text="Prendas" onAction="#irAPrendas" maxWidth="Infinity" styleClass="boton-menu"/>
+            <Button fx:id="btnVentas" text="Vender" onAction="#irAVentas" maxWidth="Infinity" styleClass="boton-menu"/>
+            <Button fx:id="btnFacturas" text="Facturas" onAction="#irAFacturas" maxWidth="Infinity" styleClass="boton-menu"/>
+            <Button fx:id="btnComprar" text="Comprar" onAction="#irAComprar" maxWidth="Infinity" styleClass="boton-menu"/>
             <Button fx:id="btnUsuarios" text="Usuarios" onAction="#irAUsuarios" maxWidth="Infinity" styleClass="boton-menu"/>
             <Button fx:id="btnReportes" text="Reportes" onAction="#irAReportes" maxWidth="Infinity" styleClass="boton-menu"/>
             <Button fx:id="btnConfiguracion" text="Configuración" onAction="#irAConfiguracion" maxWidth="Infinity" styleClass="boton-menu"/>

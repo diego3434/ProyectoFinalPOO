@@ -2,10 +2,11 @@ package model;
 
 public class Usuario extends Persona {
 
-
+    // Roles válidos según la especificación del proyecto
     public static final String ROL_ADMIN = "ADMIN";
     public static final String ROL_CAJERO = "CAJERO";
     public static final String ROL_REPORTES = "REPORTES";
+    public static final String ROL_COMPRADOR = "COMPRADOR";
 
     private String contrasena;
     private String rol;

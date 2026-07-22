@@ -1,3 +1,5 @@
+CREATE TYPE rol_usuario AS ENUM ('ADMIN', 'CAJERO', 'REPORTES');
+
 CREATE TABLE usuarios (
                           id SERIAL PRIMARY KEY,
                           nombre VARCHAR(80) NOT NULL UNIQUE,

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox spacing="15" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="controller.FacturaController">
+    <padding>
+        <Insets top="20" right="20" bottom="20" left="20"/>
+    </padding>
+
+    <Label text="Historial de Facturas" styleClass="subtitulo"/>
+
+    <TableView fx:id="tablaFacturas" VBox.vgrow="ALWAYS">
+        <columns>
+            <TableColumn fx:id="colNumeroFactura" text="N° Factura" prefWidth="100"/>
+            <TableColumn fx:id="colCliente" text="Cliente" prefWidth="130"/>
+            <TableColumn fx:id="colPrenda" text="Prenda" prefWidth="140"/>
+            <TableColumn fx:id="colCantidad" text="Cantidad" prefWidth="80"/>
+            <TableColumn fx:id="colTotal" text="Total" prefWidth="90"/>
+            <TableColumn fx:id="colCajero" text="Atendido por" prefWidth="110"/>
+        </columns>
+    </TableView>
+
+    <Button text="Reimprimir factura seleccionada" onAction="#reimprimir" styleClass="boton-primario"/>
+</VBox>

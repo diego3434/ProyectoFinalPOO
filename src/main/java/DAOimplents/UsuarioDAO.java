@@ -74,7 +74,6 @@ public class UsuarioDAO implements Crud<Usuario> {
         return lista;
     }
 
-    /** Verifica credenciales para el login. Devuelve el usuario si son correctas, o null. */
     public Usuario login(String nombreOCorreo, String contrasena) {
         String sql = "SELECT * FROM usuarios WHERE (nombre = ? OR correo = ?) AND contrasena = ?";
         try (Connection con = Conexion.getInstancia().getConnection();

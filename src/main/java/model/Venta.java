@@ -17,6 +17,11 @@ public class Venta  {
     private String nombreUsuario;
     private String nombrePrenda;
 
+    // Datos de la factura generada para esta venta
+    private String numeroFactura;
+    private String clienteNombre;
+    private String clienteCedula;
+
     public Venta() {
     }
 
@@ -93,5 +98,28 @@ public class Venta  {
     public void setNombrePrenda(String nombrePrenda) {
         this.nombrePrenda = nombrePrenda;
     }
-    
+
+    public String getNumeroFactura() {
+        return numeroFactura;
+    }
+
+    public void setNumeroFactura(String numeroFactura) {
+        this.numeroFactura = numeroFactura;
+    }
+
+    public String getClienteNombre() {
+        return clienteNombre;
+    }
+
+    public void setClienteNombre(String clienteNombre) {
+        this.clienteNombre = clienteNombre;
+    }
+
+    public String getClienteCedula() {
+        return clienteCedula;
+    }
+
+    public void setClienteCedula(String clienteCedula) {
+        this.clienteCedula = clienteCedula;
+    }
 }

@@ -6,9 +6,9 @@ import java.sql.SQLException;
 
 public class Conexion {
 
-    private static final String URL     = "jdbc:postgresql://localhost:5433/tienda_ropa1";
-    private static final String USUARIO = "postgres";
-    private static final String CLAVE   = "postgres";
+    private static final String URL     = "jdbc:postgresql://aws-1-us-west-2.pooler.supabase.com:5432/postgres";
+    private static final String USUARIO = "postgres.unkihzpamwcqwxwunwdo";
+    private static final String CLAVE   = "diegotoapanta";
 
     // Única instancia (Singleton)
     private static Conexion instancia;
@@ -24,7 +24,8 @@ public class Conexion {
         } catch (ClassNotFoundException e) {
             System.err.println("✘ Driver PostgreSQL no encontrado: " + e.getMessage());
         } catch (SQLException e) {
-            System.err.println("✘ Error al conectar con la BD: " + e.getMessage());
+            System.err.println("✘ Error al conectar con la BD: " );
+            e.printStackTrace();
         }
     }
 

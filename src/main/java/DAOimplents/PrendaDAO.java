@@ -85,6 +85,32 @@ public class PrendaDAO implements Crud<Prenda> {
         }
         return lista;
     }
+
+
+    public List<Prenda> listarConStock() {
+        List<Prenda> lista = new ArrayList<>();
+        String sql = "SELECT * FROM prendas WHERE stock > 0 ORDER BY nombre";
+        try (Connection con = Conexion.getInstancia().getConnection();
+             PreparedStatement ps = con.prepareStatement(sql);
+             ResultSet rs = ps.executeQuery()) {
+            while (rs.next()) {
+                lista.add(new Prenda(
+                        rs.getInt("id"),
+                        rs.getString("nombre"),
+                        rs.getString("categoria"),
+                        rs.getString("talla"),
+                        rs.getString("color"),
+                        rs.getDouble("precio"),
+                        rs.getInt("stock")
+                ));
+            }
+        } catch (SQLException e) {
+            System.err.println("Error al listar prendas con stock: " + e.getMessage());
+        }
+        return lista;
+    }
+
+
     public boolean existeNombre(String nombre) {
         String sql = "SELECT id FROM prendas WHERE nombre = ?";
         try (Connection con = Conexion.getInstancia().getConnection();
