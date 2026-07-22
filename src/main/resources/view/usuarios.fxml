@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<HBox spacing="20" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="controller.UsuarioInterfazController">
+    <padding>
+        <Insets top="20" right="20" bottom="20" left="20"/>
+    </padding>
+
+    <VBox spacing="10" prefWidth="260" styleClass="formulario">
+        <Label text="Nuevo usuarioInterfaz" styleClass="subtitulo"/>
+        <TextField fx:id="txtNombre" promptText="Nombre"/>
+        <TextField fx:id="txtCorreo" promptText="Correo"/>
+        <PasswordField fx:id="txtContrasena" promptText="Contraseña (mín. 6 caracteres)"/>
+        <ComboBox fx:id="cbRol" promptText="Rol" maxWidth="Infinity"/>
+
+        <HBox spacing="10">
+            <Button text="Crear" onAction="#crearUsuario" styleClass="boton-primario"/>
+            <Button text="Eliminar" onAction="#eliminarUsuario" styleClass="boton-peligro"/>
+            <Button text="Limpiar" onAction="#limpiar" styleClass="boton-secundario"/>
+        </HBox>
+    </VBox>
+
+    <TableView fx:id="tablaUsuarios" HBox.hgrow="ALWAYS">
+        <columns>
+            <TableColumn fx:id="colId" text="ID" prefWidth="40"/>
+            <TableColumn fx:id="colNombre" text="Nombre" prefWidth="140"/>
+            <TableColumn fx:id="colCorreo" text="Correo" prefWidth="180"/>
+            <TableColumn fx:id="colRol" text="Rol" prefWidth="100"/>
+        </columns>
+    </TableView>
+</HBox>

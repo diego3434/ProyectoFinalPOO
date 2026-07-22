@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox spacing="15" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="controller.ReportesController">
+    <padding>
+        <Insets top="20" right="20" bottom="20" left="20"/>
+    </padding>
+
+    <Label text="Reportes de Ventas" styleClass="subtitulo"/>
+
+    <HBox spacing="30">
+        <VBox styleClass="tarjeta-resumen">
+            <Label text="Total vendido"/>
+            <Label fx:id="lblTotalVentas" styleClass="valor-resumen"/>
+        </VBox>
+        <VBox styleClass="tarjeta-resumen">
+            <Label text="Prendas registradas"/>
+            <Label fx:id="lblTotalPrendas" styleClass="valor-resumen"/>
+        </VBox>
+        <Button text="Descargar reporte (.csv)" onAction="#descargarReporte" styleClass="boton-primario"/>
+    </HBox>
+
+    <BarChart fx:id="chartVentas" prefHeight="220">
+        <xAxis>
+            <CategoryAxis label="Prenda"/>
+        </xAxis>
+        <yAxis>
+            <NumberAxis label="Total ($)"/>
+        </yAxis>
+    </BarChart>
+
+    <TableView fx:id="tablaVentas" VBox.vgrow="ALWAYS">
+        <columns>
+            <TableColumn fx:id="colUsuario" text="Usuario" prefWidth="140"/>
+            <TableColumn fx:id="colPrenda" text="Prenda" prefWidth="140"/>
+            <TableColumn fx:id="colCantidad" text="Cantidad" prefWidth="90"/>
+            <TableColumn fx:id="colTotal" text="Total" prefWidth="100"/>
+        </columns>
+    </TableView>
+</VBox>
+

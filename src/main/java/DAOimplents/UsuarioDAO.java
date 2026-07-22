@@ -93,7 +93,6 @@ public class UsuarioDAO implements Crud<Usuario> {
         return null;
     }
 
-    /** Verifica si ya existe un usuario con ese nombre (evita duplicados). */
     public boolean existeNombre(String nombre) {
         String sql = "SELECT id FROM usuarios WHERE nombre = ?";
         try (Connection con = Conexion.getInstancia().getConnection();

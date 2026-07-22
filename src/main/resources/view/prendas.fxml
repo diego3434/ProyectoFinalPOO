@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<HBox spacing="20" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="controller.PrendaController">
+    <padding>
+        <Insets top="20" right="20" bottom="20" left="20"/>
+    </padding>
+
+    <!-- Formulario (reutilizado para crear y editar) -->
+    <VBox spacing="10" prefWidth="260" styleClass="formulario">
+        <Label fx:id="lblTituloFormulario" text="Nueva prenda" styleClass="subtitulo"/>
+        <TextField fx:id="txtNombre" promptText="Nombre de la prenda"/>
+        <ComboBox fx:id="cbCategoria" promptText="Categoría" maxWidth="Infinity"/>
+        <ComboBox fx:id="cbTalla" promptText="Talla" maxWidth="Infinity"/>
+        <TextField fx:id="txtColor" promptText="Color"/>
+        <TextField fx:id="txtPrecio" promptText="Precio"/>
+        <TextField fx:id="txtStock" promptText="Stock"/>
+
+        <HBox spacing="10">
+            <Button fx:id="btnGuardar" text="Guardar" onAction="#guardar" styleClass="boton-primario"/>
+            <Button fx:id="btnEliminar" text="Eliminar" onAction="#eliminar" styleClass="boton-peligro"/>
+            <Button fx:id="btnLimpiar" text="Limpiar" onAction="#limpiar" styleClass="boton-secundario"/>
+        </HBox>
+    </VBox>
+
+    <!-- Tabla -->
+    <TableView fx:id="tablaPrendas" HBox.hgrow="ALWAYS">
+        <columns>
+            <TableColumn fx:id="colId" text="ID" prefWidth="40"/>
+            <TableColumn fx:id="colNombre" text="Nombre" prefWidth="140"/>
+            <TableColumn fx:id="colCategoria" text="Categoría" prefWidth="110"/>
+            <TableColumn fx:id="colTalla" text="Talla" prefWidth="60"/>
+            <TableColumn fx:id="colColor" text="Color" prefWidth="90"/>
+            <TableColumn fx:id="colPrecio" text="Precio" prefWidth="80"/>
+            <TableColumn fx:id="colStock" text="Stock" prefWidth="70"/>
+        </columns>
+    </TableView>
+</HBox>

@@ -17,7 +17,9 @@
             <padding>
                 <Insets top="10" right="20" bottom="10" left="20"/>
             </padding>
-
+            <ImageView fitHeight="40" fitWidth="40" preserveRatio="true">
+                <Image url="@../img/logo.png"/>
+            </ImageView>
             <Label text="Tienda de Ropa" styleClass="titulo-barra"/>
             <HBox HBox.hgrow="ALWAYS"/>
             <Label fx:id="lblNombreUsuario" styleClass="label-usuario"/>
@@ -39,4 +41,3 @@
     </left>
 
 </BorderPane>
-

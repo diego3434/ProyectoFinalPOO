@@ -6,11 +6,10 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
-import model.Usuario;
 
 import java.util.Optional;
 
-public class UsuarioController implements UsuarioAware {
+public class UsuarioInterfazController implements UsuarioInterfaz {
 
     @FXML
     private TextField txtNombre;
@@ -18,24 +17,24 @@ public class UsuarioController implements UsuarioAware {
     @FXML private PasswordField txtContrasena;
     @FXML private ComboBox<String> cbRol;
 
-    @FXML private TableView<Usuario> tablaUsuarios;
-    @FXML private TableColumn<Usuario, Integer> colId;
-    @FXML private TableColumn<Usuario, String> colNombre;
-    @FXML private TableColumn<Usuario, String> colCorreo;
-    @FXML private TableColumn<Usuario, String> colRol;
+    @FXML private TableView<model.Usuario> tablaUsuarios;
+    @FXML private TableColumn<model.Usuario, Integer> colId;
+    @FXML private TableColumn<model.Usuario, String> colNombre;
+    @FXML private TableColumn<model.Usuario, String> colCorreo;
+    @FXML private TableColumn<model.Usuario, String> colRol;
 
     private final UsuarioDAO usuarioDAO = new UsuarioDAO();
-    private final ObservableList<Usuario> lista = FXCollections.observableArrayList();
+    private final ObservableList<model.Usuario> lista = FXCollections.observableArrayList();
 
     @Override
-    public void setUsuarioSesion(Usuario usuario) {
+    public void setUsuarioSesion(model.Usuario usuario) {
         // Este módulo solo lo ve el administrador (controlado desde el Dashboard)
     }
 
     @FXML
     public void initialize() {
         cbRol.setItems(FXCollections.observableArrayList(
-                Usuario.ROL_ADMIN, Usuario.ROL_CAJERO, Usuario.ROL_REPORTES));
+                model.Usuario.ROL_ADMIN, model.Usuario.ROL_CAJERO, model.Usuario.ROL_REPORTES));
 
         colId.setCellValueFactory(new PropertyValueFactory<>("id"));
         colNombre.setCellValueFactory(new PropertyValueFactory<>("nombre"));
@@ -76,7 +75,7 @@ public class UsuarioController implements UsuarioAware {
             return;
         }
 
-        Usuario nuevo = new Usuario(0, nombre, correo, contrasena, rol);
+        model.Usuario nuevo = new model.Usuario(0, nombre, correo, contrasena, rol);
         if (usuarioDAO.guardar(nuevo)) {
             alerta(Alert.AlertType.INFORMATION, "Éxito", "Usuario creado correctamente.");
             limpiar();
@@ -88,7 +87,7 @@ public class UsuarioController implements UsuarioAware {
 
     @FXML
     private void eliminarUsuario() {
-        Usuario seleccionado = tablaUsuarios.getSelectionModel().getSelectedItem();
+        model.Usuario seleccionado = tablaUsuarios.getSelectionModel().getSelectedItem();
         if (seleccionado == null) {
             alerta(Alert.AlertType.WARNING, "Sin selección", "Selecciona un usuario de la tabla.");
             return;

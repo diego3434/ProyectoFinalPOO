@@ -16,7 +16,9 @@
         <Insets top="40" right="40" bottom="40" left="40"/>
     </padding>
 
-
+    <ImageView fitHeight="90" fitWidth="90" preserveRatio="true">
+        <Image url="@../img/logo.png"/>
+    </ImageView>
 
     <Label text="Tienda de Ropa" styleClass="titulo-login"/>
     <Label text="Ingresa tus credenciales para continuar" styleClass="subtitulo-login"/>

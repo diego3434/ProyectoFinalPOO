@@ -1,6 +1,5 @@
 package controller;
 
-import model.Usuario;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -11,12 +10,13 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
+import model.Usuario;
 
 import java.io.IOException;
 import java.util.Optional;
 
 
-public class DashboardController {
+public class DashboardController  {
 
     @FXML private Label lblNombreUsuario;
     @FXML private Label lblRol;
@@ -28,28 +28,28 @@ public class DashboardController {
     @FXML private Button btnConfiguracion;
     @FXML private Button btnCerrarSesion;
 
-    private Usuario usuarioActual;
+    private model.Usuario usuarioActual;
 
-    public void setUsuario(Usuario usuario) {
+    public void setUsuario(model.Usuario usuario) {
         this.usuarioActual = usuario;
         lblNombreUsuario.setText(usuario.getNombre());
         lblRol.setText(usuario.getRol());
 
-     /*   contentPane.getStyleClass().removeAll("tema-admin", "tema-cajero", "tema-reportes");
+       contentPane.getStyleClass().removeAll("tema-admin", "tema-cajero", "tema-reportes");
         switch (usuario.getRol()) {
             case Usuario.ROL_ADMIN -> contentPane.getStyleClass().add("tema-admin");
             case Usuario.ROL_CAJERO -> contentPane.getStyleClass().add("tema-cajero");
             case Usuario.ROL_REPORTES -> contentPane.getStyleClass().add("tema-reportes");
         }
-*/
+
         aplicarPermisosPorRol(usuario.getRol());
         cargarVista("/view/prendas.fxml");
     }
 
     private void aplicarPermisosPorRol(String rol) {
-        boolean esAdmin = Usuario.ROL_ADMIN.equals(rol);
-        boolean esCajero = Usuario.ROL_CAJERO.equals(rol);
-        boolean esReportes = Usuario.ROL_REPORTES.equals(rol);
+        boolean esAdmin = model.Usuario.ROL_ADMIN.equals(rol);
+        boolean esCajero = model.Usuario.ROL_CAJERO.equals(rol);
+        boolean esReportes = model.Usuario.ROL_REPORTES.equals(rol);
 
         btnPrendas.setVisible(esAdmin || esCajero);
         btnPrendas.setManaged(esAdmin || esCajero);
@@ -91,7 +91,7 @@ public class DashboardController {
             Parent vista = loader.load();
 
             Object controlador = loader.getController();
-            if (controlador instanceof UsuarioAware ua) {
+            if (controlador instanceof UsuarioInterfaz ua) {
                 ua.setUsuarioSesion(usuarioActual);
             }
 
